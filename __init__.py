@@ -1,0 +1,2 @@
+from .EEGGen import EEGGen
+
