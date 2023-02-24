@@ -84,9 +84,11 @@ class EEGGen():
     return data[:out_N]
 
 
-  def Generate(self, duration):
+  def Generate(self, duration, random_state=None):
     '''Generate an EEG signal of the specified duration including the
        configured pink noise, components, and spikes.'''
+    if random_state is not None:
+        np.random.seed(random_state)
     N = int(round(duration * self.sampling_rate))
     eeg = np.zeros(N)
     self.time_coords = np.linspace(0, N/self.sampling_rate, N)
