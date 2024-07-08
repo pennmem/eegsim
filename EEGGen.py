@@ -20,7 +20,7 @@ class EEGComponent():
     cycle = (time-start)*freq
     if (time < start) or (cycle > self.reps):
       return 0
-    
+
     return self.amp * np.sin(2*np.pi*cycle)
 
   def AddToEEG(self, eeg, sr):
@@ -76,7 +76,7 @@ class EEGGen():
       N += 1
     scales = np.linspace(0, 0.5, N//2+1)[1:]
     scales = scales**(-self.pinknoise_exponent/2)
-    pinkf = (np.random.normal(scale=scales) * 
+    pinkf = (np.random.normal(scale=scales) *
         np.exp(2j*np.pi*np.random.random(N//2)))
     fdata = np.concatenate([[0], pinkf])
     sigma = np.sqrt(2*np.sum(scales**2))/N

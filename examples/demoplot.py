@@ -1,3 +1,5 @@
+#!/usr/bin/env python3
+
 from eegsim import EEGGen
 import matplotlib.pyplot as plt
 
